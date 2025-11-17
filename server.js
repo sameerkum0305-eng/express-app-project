@@ -5,6 +5,9 @@ const postRouter = require('./routes/posts');
 const app = express();
 app.set('view engine', 'ejs');
 
+app.use(express.static("public"));
+app.use(express.urlencoded((extended:true}));
+
 app.use('/users', userRouter);
 app.use('/posts', postRouter);
 
@@ -13,4 +16,7 @@ app.get('/', (req, res) => {
   res.render('index', { user: 'Sameer!' });
 });
 
+app.get('/new, (req, res)=>{
+        res.render('users/new', {firstName: "Please enter your name:});
+          
 app.listen(3030);
